@@ -41,10 +41,10 @@ def get_all_users() -> list[User]:
     """Возврат всех пользователей"""
     return _users
 
-def get_user(name: str) -> User | None:
+def get_user(user_id: int) -> User | None:
     """Возвращает одного пользователя по имени, либо ничего, если он не был найден."""
     for _user in _users:
-        if _user.name == name:
+        if _user.id == user_id:
             return _user
     return None
 
@@ -62,14 +62,13 @@ def delete_user(user_id: int) -> None:
         if user_id == _user.id:
             _users.remove(_user)
 
-def get_tasks_for_user(list_id: int) -> list[Task]:
+def get_tasks_for_todolist(list_id: int) -> list[Task]:
     """Возвращает список задач для списка с указанным id."""
     res = []
     for _task in _tasks:
         if _task.list_id == list_id:
             res.append(_task)
     return res
-
 
 def create_task(task: Task) -> Task:
     """Создает задачу."""
@@ -78,10 +77,10 @@ def create_task(task: Task) -> Task:
 
 def modify_task(task: Task) -> Task | None:
     """Редактирует задачу, если задача с таким id есть в списке, иначе не делает ничего."""
-    for _task in _tasks:
+    for index, _task in enumerate(_tasks):
         if _task.id == task.id:
-            _tasks[task.id] = task
-            return _task[task.id]
+            _tasks[index] = task
+            return _tasks[index]
         
 def delete_task(task_id: int) -> None:
     """Удаляет задачу, если задача с таким id есть в списке, иначе не делает ничего."""
@@ -89,6 +88,13 @@ def delete_task(task_id: int) -> None:
         if _task.id == task_id:
             _tasks.remove(_task)
 
+def get_todolists_for_user(user_id: int) -> list[Todolist]:
+    """Создает список списков задач."""
+    lists = []
+    for _todolist in _todolists:
+        if _todolist.user_id == user_id:
+            lists.append(_todolist)
+    return lists
 
 def create_todolist(todolist: Todolist) -> Todolist:
     """Создает список задач."""
