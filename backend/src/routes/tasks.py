@@ -7,8 +7,8 @@ import service
 router = APIRouter(prefix="/tasks")
 
 @router.get("/")
-def get_all_for_user(list_id: int) -> list[Task]:
-    return service.get_tasks_for_todolist(list_id)
+def get_tasks(todolistID: int) -> list[Task]:
+    return service.get_tasks_for_todolist(todolistID)
 
 @router.post("/", status_code=201)
 def create(task: Task):

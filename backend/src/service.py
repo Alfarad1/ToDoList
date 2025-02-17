@@ -28,6 +28,9 @@ def delete_task(task_id: int) -> None:
 def get_todolists_for_user(user_id: int) -> list[Todolist]:
     return data.get_todolists_for_user(user_id)
 
+def get_todolist(user_id:int, todolist_id: int) -> Todolist | None:
+    return data.get_todolist(user_id, todolist_id)
+
 def create_todolist(todolist: Todolist) -> Todolist:
     return data.create_todolist(todolist)
 

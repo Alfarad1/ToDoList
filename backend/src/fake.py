@@ -42,7 +42,7 @@ def get_all_users() -> list[User]:
     return _users
 
 def get_user(user_id: int) -> User | None:
-    """Возвращает одного пользователя по имени, либо ничего, если он не был найден."""
+    """Возвращает одного пользователя по id, либо ничего, если он не был найден."""
     for _user in _users:
         if _user.id == user_id:
             return _user
@@ -89,12 +89,19 @@ def delete_task(task_id: int) -> None:
             _tasks.remove(_task)
 
 def get_todolists_for_user(user_id: int) -> list[Todolist]:
-    """Создает список списков задач."""
+    """Возвращает список списков задач для пользователя."""
     lists = []
     for _todolist in _todolists:
         if _todolist.user_id == user_id:
             lists.append(_todolist)
     return lists
+
+def get_todolist(user_id:int, todolist_id: int) -> Todolist | None:
+    """Возвращает список задач."""
+    for _todolist in _todolists:
+        if _todolist.id == todolist_id and _todolist.user_id == user_id:
+            return _todolist
+    return None
 
 def create_todolist(todolist: Todolist) -> Todolist:
     """Создает список задач."""
