@@ -36,13 +36,10 @@ def create_user(user: UserCreate, db : Session) -> UserBase | None:
     db.refresh(new_user)
     return new_user
 
-# def delete_user(user_id: int, db : Session) -> None:
-#     user = db.query(User).filter(User.id == user_id).first()
-#     if not user:
-#         raise HTTPException(status_code=404, detail="User not found")
-#     db.delete(user)
-#     db.commit()
-#     return
+def delete_user(user: User, db : Session) -> None:
+    db.delete(user)
+    db.commit()
+    return None
 
 def update_user(user: User, db : Session) -> UserBase | None:
     db.commit()

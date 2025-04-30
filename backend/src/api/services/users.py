@@ -1,7 +1,4 @@
 from schemas.users import UserBase, UserCreate, UserRead, UserFilter, UserUpdate
-# , Task, ToDoList
-# import fake as data
-import crud.data as data
 import crud.users
 from sqlalchemy.orm import Session
 
@@ -41,8 +38,11 @@ def create_user(user: UserCreate, db : Session) -> UserBase | None:
 
     return crud.users.create_user(user, db)
 
-# def delete_user(user_id: int) -> None:
-#     return data.delete_user(user_id)
+def delete_user(user_id: int, db : Session) -> None:
+    user = crud.users.get_user(user_id, db)
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    return crud.users.delete_user(user, db)
 
 def update_user(user_id: int, user_new_data: UserUpdate, db : Session) -> UserBase | None:
     db_user = crud.users.get_user(user_id, db)

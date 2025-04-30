@@ -27,9 +27,9 @@ def get_one(user_id: int, db: Session = Depends(get_db)) -> UserBase | None:
 def create(user: UserCreate, db: Session = Depends(get_db)):
     return create_user(user, db)
 
-# @router.delete("/{user_id}", status_code=204)
-# def delete(user_id: int, db: Session = Depends(get_db)):
-#     return delete_user(user_id, db)
+@router.delete("/{user_id}", status_code=204)
+def delete(user_id: int, db: Session = Depends(get_db)):
+    return delete_user(user_id, db)
 
 @router.put("/{user_id}", response_model=UserRead)
 def update(user_id: int, user: UserUpdate, db: Session = Depends(get_db)):
