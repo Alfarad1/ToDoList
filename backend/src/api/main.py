@@ -22,6 +22,17 @@ app.add_exception_handler(RequestValidationError, validation_exception_handler)
 app.add_exception_handler(IntegrityError, db_exception_handler)
 app.add_exception_handler(Exception, generic_exception_handler)
 
+from sqladmin import Admin, ModelView
+from models.users import User
+from core.database import engine
+
+admin = Admin(app, engine)
+
+class UserAdmin(ModelView, model=User):
+    column_list = [User.id, User.username, User.email, User.is_admin]
+
+admin.add_view(UserAdmin)
+
 @app.get("/")
 async def home():
     return "Hello!"

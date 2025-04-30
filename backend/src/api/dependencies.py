@@ -1,14 +1,11 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, Session
+from sqlalchemy.orm import Session
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from jose import JWTError
 from core.security import decode_access_token
+from core.database import SessionLocal
 from models.users import User
 
-conn_string = "postgresql+psycopg2://postgres:postgres@localhost:5432/postgres"
-engine = create_engine(conn_string, echo=True)
-SessionLocal = sessionmaker(autoflush=False, bind=engine)
 
 def get_db():
     db = SessionLocal()
