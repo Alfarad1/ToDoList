@@ -8,7 +8,8 @@ from models.users import User
 from schemas.token import Token
 import crud.users
 
-router = APIRouter(tags=["auth"])
+router = APIRouter(prefix="/auth",
+                   tags=["auth"])
 
 @router.post("/login", response_model=Token)
 def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
