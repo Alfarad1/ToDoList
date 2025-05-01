@@ -25,13 +25,21 @@ def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(
     except JWTError:
         raise HTTPException(status_code=401, detail="Invalid token")
 
-    user = db.query(User).filter(User.username == username).first()
+    user: User = db.query(User).filter(User.username == username).first()
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
 
     return user
 
-def admin_required(current_user: User = Depends(get_current_user)):
+def current_user_id(current_user: User = Depends(get_current_user)) -> int:
+    return current_user.id
+
+def admin_required(current_user: User = Depends(get_current_user)) -> None:
     if not current_user.is_admin:
         raise HTTPException(status_code=403, detail="Not authorized")
-    return current_user
+    return None
+
+def is_admin(current_user: User = Depends(get_current_user)) -> bool:
+    if current_user.is_admin:
+        return True
+    return False

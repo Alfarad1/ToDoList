@@ -9,12 +9,12 @@ from core.exceptions import (
 )
 
 
-from routes import users, todolists, tasks, auth
+from routes import users, todos, tasks, auth
 
 app = FastAPI()
 app.include_router(users.router)
-app.include_router(todolists.router)
-app.include_router(tasks.router)
+app.include_router(todos.router)
+# app.include_router(tasks.router)
 app.include_router(auth.router)
 
 # Register handlers

@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends
 
 from dependencies import get_db, get_current_user, admin_required
 from sqlalchemy.orm import Session
@@ -11,9 +11,9 @@ from models.users import User
 router = APIRouter(prefix="/users",
                    tags=["users"])
 
-@router.get("/", response_model=list[UserRead])
-def get_all(db: Session = Depends(get_db), is_admin: bool = Depends(admin_required)):
-    return get_all_users(db, is_admin)
+@router.get("/", response_model=list[UserRead], dependencies=[Depends(admin_required)])
+def get_all(db: Session = Depends(get_db)):
+    return get_all_users(db)
 
 @router.get("/me", response_model=UserRead)
 def read_current_user(current_user: User = Depends(get_current_user)):

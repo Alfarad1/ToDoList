@@ -41,7 +41,7 @@ def delete_user(user: User, db : Session) -> None:
     db.commit()
     return None
 
-def update_user(user: User, db : Session) -> UserBase | None:
+def update_user(user: User, db: Session) -> UserBase:
     db.commit()
     db.refresh(user)
     return user

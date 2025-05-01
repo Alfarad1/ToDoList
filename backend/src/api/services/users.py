@@ -7,17 +7,14 @@ from fastapi import HTTPException
 from core.security import hash_password
 
 
-def get_all_users(is_admin: bool, db : Session) -> list[UserBase] | None:
-    if not is_admin:
-        raise HTTPException(
-            status_code=403,
-            detail="Unauthorized."
-        )
-    
+def get_all_users(db : Session) -> list[UserBase] | None:  
     return crud.users.get_all_users(db)
 
 def get_user(user_id: int, db : Session) -> UserBase | None:
-    return crud.users.get_user(user_id, db)
+    user = crud.users.get_user(user_id, db)
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    return user
 
 def create_user(user: UserCreate, db : Session) -> UserBase | None:
     existing_user = crud.users.filter_users(UserFilter(email=user.email), db)
