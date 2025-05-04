@@ -7,7 +7,7 @@ const TodosPage = () => {
 
   useEffect(() => {
     const fetchTodos = async () => {
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem("access_token");
 
       if (!token) {
         setError("No token found. Please log in.");
