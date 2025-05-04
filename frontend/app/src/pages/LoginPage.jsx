@@ -11,8 +11,8 @@ function LoginPage() {
     //console.log("Login attempt:", { username, password });
     // Later, call the API here
     const formData = new URLSearchParams()
-  formData.append("username", username)
-  formData.append("password", password)
+    formData.append("username", username)
+    formData.append("password", password)
     try {
         const response = await axios.post("http://127.0.0.1:8000/auth/login", formData, {
           headers: {
