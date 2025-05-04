@@ -4,6 +4,11 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import TodosPage from './pages/TodosPage';
 
+const handleLogout = () => {
+  localStorage.removeItem("token");
+  window.location.href = "/login";
+};
+
 function App() {
   return (
     <Router>
@@ -11,6 +16,7 @@ function App() {
         <Link to="/">Todos</Link> |{" "}
         <Link to="/login">Login</Link> |{" "}
         <Link to="/register">Register</Link>
+        <button onClick={handleLogout}>Logout</button>
       </nav>
 
       <Routes>

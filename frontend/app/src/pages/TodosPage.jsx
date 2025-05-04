@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../axiosConfig";
 
 const TodosPage = () => {
   const [todos, setTodos] = useState([]);
@@ -15,7 +15,7 @@ const TodosPage = () => {
       }
 
       try {
-        const response = await axios.get("http://127.0.0.1:8000/todos", {
+        const response = await api.get("http://127.0.0.1:8000/todos", {
           headers: {
             Authorization: `Bearer ${token}`,
           },

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from 'axios'
+import api from "../axiosConfig";
 
 function RegisterPage() {
     const [username, setUsername] = useState("");
@@ -10,10 +10,8 @@ function RegisterPage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        //console.log("Login attempt:", { username, password });
-        // Later, call the API here
         try {
-            const response = await axios.post("http://127.0.0.1:8000/users",
+            const response = await api.post("http://127.0.0.1:8000/users",
                 {
                     username,
                     password,

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from 'axios'
+import api from "../axiosConfig";
 
 function LoginPage() {
   const [username, setUsername] = useState("");
@@ -14,14 +14,14 @@ function LoginPage() {
     formData.append("username", username)
     formData.append("password", password)
     try {
-        const response = await axios.post("http://127.0.0.1:8000/auth/login", formData, {
+        const response = await api.post("http://127.0.0.1:8000/auth/login", formData, {
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
         })
     
-        const { access_token } = response.data
-        localStorage.setItem("token", access_token)
+        localStorage.setItem("access_token", response.data.access_token)
+        localStorage.setItem("refresh_token", response.data.refresh_token)
         console.log("Logged in successfully!")
       } catch (err) {
         console.error(err)
