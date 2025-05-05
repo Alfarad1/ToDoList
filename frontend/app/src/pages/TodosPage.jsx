@@ -32,13 +32,13 @@ const TodosPage = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Your Todos</h2>
+    <div class="listitems">
+      <h2>Your Todo's:</h2>
       {error && <p style={{ color: "red" }}>{error}</p>}
       <ul>
         {todos.map((todo) => (
           <li key={todo.id}>
-            <strong>{todo.title}</strong> — {todo.description}
+            <strong>{todo.title}</strong> <br /> {todo.description}
           </li>
         ))}
       </ul>

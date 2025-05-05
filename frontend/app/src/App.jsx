@@ -33,7 +33,7 @@ function App() {
       <nav className="navbar">
         <Link to="/">Todos</Link>
         <div className="navbar-left">
-          {isLoggedIn && <span id='UserName'>{username}</span>}
+          {isLoggedIn && <span id='UserName'>Hello {username}!</span>}
           {!isLoggedIn && (
             <Link to="/login">
               <button className="btn">Login</button>
