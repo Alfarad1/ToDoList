@@ -33,7 +33,7 @@ body {
     align-items: center;
     gap: 0 2rem;
 }
-nav button {
+button {
     font-size: 2rem;
     background-color: var(--txt-color-header);
     border-radius: 2rem;
@@ -41,17 +41,46 @@ nav button {
     color: var(--txt-color-main);
     transition: all 0.1s ease-in-out;
 }
-nav button:hover {
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+input {
+    border-radius: 2rem;
+    padding: 1rem;
+    width: 30%;
+    height: 3rem;
+    font-size: 2rem;
+    font-family: inherit;
+}
+button:hover {
     border-color: var(--bg-color-main);
     color: var(--bg-color-main);
 }
-
+p {
+    color:aliceblue;
+    font-size: 2rem;
+    padding: 2rem 0
+}
 a {
     text-decoration: none;
     color:aliceblue;
     font-size: 2rem;
 }
+a:hover {
+    color: var(--txt-color-header);
+}
 
+.container {
+    text-align: center;
+    background-color: var(--bg-color-second);
+    margin: 2rem;
+    padding: 2rem 4rem;
+    border-radius: 2rem;
+    box-shadow: 1rem 1rem 1rem rgba(0,0,0,0.5);
+}
 
 ul {
     list-style: none;

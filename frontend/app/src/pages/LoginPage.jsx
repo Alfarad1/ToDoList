@@ -39,26 +39,32 @@ function LoginPage({ onLoginSuccess }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-80 mx-auto mt-10">
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        className="border p-2 rounded"
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        className="border p-2 rounded"
-      />
-      <button type="submit" className="bg-blue-500 text-white p-2 rounded">
-        Login
-      </button>
-      {error && <p className="text-red-500">{error}</p>}
-    </form>
+    <>
+    <div className="loginpage container">
+      <p>Log in:</p>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-80 mx-auto mt-10">
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          className="border p-2 rounded"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="border p-2 rounded"
+        />
+        <button type="submit" className="bg-blue-500 text-white p-2 rounded">
+          Login
+        </button>
+        {error && <p className="text-red-500">{error}</p>}
+      </form>
+      <p>If you don't have an account, please register at <a href="/register">Sign Up</a>!</p>
+      </div>
+    </>
   );
 }
 
