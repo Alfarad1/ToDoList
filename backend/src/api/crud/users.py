@@ -20,8 +20,15 @@ def filter_users(filters: UserFilter, db: Session) -> list[User]:
         query = query.filter(User.name.ilike(f"%{filters.name}%"))
     if filters.is_admin is not None:
         query = query.filter(User.is_admin == filters.is_admin)
-
+    if filters.confirmation_token:
+        query = query.filter(User.confirmation_token == filters.confirmation_token)
+    if filters.is_active:
+        query = query.filter(User.is_active == filters.is_active)
     return query.all()
+
+def filter_one_user(filters: UserFilter, db: Session) -> User | None:
+    users = filter_users(filters, db)
+    return users[0]
 
 def create_user(user: UserCreate, db : Session) -> UserBase | None:
     new_user =  User(

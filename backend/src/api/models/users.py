@@ -11,6 +11,8 @@ class User(Base):
     email = Column(String, unique=True, index=True)
     hashed_password = Column(String)
     name = Column(String)
-    is_admin = Column(Boolean, index=True)
+    is_admin = Column(Boolean, index=True, default=False)
+    is_active = Column(Boolean, index=True, default=False)
+    confirmation_token = Column(String, nullable=True)
 
     todos = relationship("Todo", back_populates="owner", cascade="all, delete-orphan")
