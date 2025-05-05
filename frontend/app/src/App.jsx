@@ -31,7 +31,7 @@ function App() {
   return (
     <>
       <nav className="navbar">
-        <Link to="/">Todos</Link>
+        {/* <Link to="/">Todos</Link> */}
         <div className="navbar-left">
           {isLoggedIn && <span id='UserName'>Hello {username}!</span>}
           {!isLoggedIn && (
