@@ -24,6 +24,7 @@ function LoginPage() {
     
         localStorage.setItem("access_token", response.data.access_token)
         localStorage.setItem("refresh_token", response.data.refresh_token)
+        localStorage.setItem("username", username)
         console.log("Logged in successfully!")
         navigate("/");
       } catch (err) {

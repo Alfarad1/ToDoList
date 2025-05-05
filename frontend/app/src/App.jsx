@@ -5,7 +5,9 @@ import RegisterPage from './pages/RegisterPage';
 import TodosPage from './pages/TodosPage';
 
 const handleLogout = () => {
-  localStorage.removeItem("token");
+  localStorage.removeItem("access_token");
+  localStorage.removeItem("refresh_token");
+  localStorage.removeItem("username");
   window.location.href = "/login";
 };
 
