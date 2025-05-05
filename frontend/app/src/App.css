@@ -15,9 +15,15 @@ body {
 
 .navbar {
     display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 1rem;
+}
+.navbar-left {
+    display: flex;
     justify-content: right;
     align-items: center;
-    gap: 4rem 1rem;
+    gap: 0 2rem;
 }
 nav button {
     font-size: 2rem;
@@ -37,5 +43,15 @@ ul {
 h2 {
     color: blue;
     font-size: 3rem;
-    padding: 2rem 10rem;
+    
 }
+.button_visible {
+    visibility: visible;
+}
+.button_hidden{
+    visibility: hidden;
+}
+/* #UserName {
+    visibility:hidden;
+    gap:0;
+} */
