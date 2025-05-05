@@ -27,7 +27,7 @@ body {
 }
 nav button {
     font-size: 2rem;
-    background-color: orange;
+    background-color: lightcoral;
 }
 
 a {
@@ -51,7 +51,7 @@ h2 {
 .button_hidden{
     visibility: hidden;
 }
-/* #UserName {
-    visibility:hidden;
-    gap:0;
-} */
+#UserName {
+    font-size: 2rem;
+    color: blue;
+}

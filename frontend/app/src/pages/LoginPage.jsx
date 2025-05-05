@@ -2,7 +2,7 @@ import { useState } from "react";
 import api from "../axiosConfig";
 import { useNavigate } from "react-router-dom";
 
-function LoginPage() {
+function LoginPage({ onLoginSuccess }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null)
@@ -15,22 +15,27 @@ function LoginPage() {
     const formData = new URLSearchParams()
     formData.append("username", username)
     formData.append("password", password)
-    try {
+    if (username === '' || password === ''){
+      setError("Fill in the username and password fields!");
+    }
+    else {
+      try {
         const response = await api.post("http://127.0.0.1:8000/auth/login", formData, {
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
         })
-    
         localStorage.setItem("access_token", response.data.access_token)
         localStorage.setItem("refresh_token", response.data.refresh_token)
         localStorage.setItem("username", username)
+        onLoginSuccess();
         console.log("Logged in successfully!")
         navigate("/");
       } catch (err) {
         console.error(err)
         setError("Invalid username or password")
       }
+    }
   };
 
   return (
