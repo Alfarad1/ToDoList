@@ -1,0 +1,9 @@
+Два разных терминала
+
+Запуск бэка:
+1. Сделать cd в backend/src/api
+2. python main.py
+
+Запуск фронта
+1. Сделать cd в frontend/app
+2. npm run dev

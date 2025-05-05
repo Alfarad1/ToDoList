@@ -1,0 +1,41 @@
+/* SETUP */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: lightblue;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+.navbar {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 4rem 1rem;
+}
+nav button {
+    font-size: 2rem;
+    background-color: orange;
+}
+
+a {
+    text-decoration: none;
+    color:aliceblue;
+    font-size: 2rem;
+}
+
+ul {
+    list-style: none;
+}
+
+h2 {
+    color: blue;
+    font-size: 3rem;
+    padding: 2rem 10rem;
+}

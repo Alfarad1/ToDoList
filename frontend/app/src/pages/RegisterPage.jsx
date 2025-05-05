@@ -1,5 +1,6 @@
 import { useState } from "react";
 import api from "../axiosConfig";
+// import './App.css';
 
 function RegisterPage() {
     const [username, setUsername] = useState("");
