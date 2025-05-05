@@ -1,43 +1,44 @@
-alembic==1.14.1
-annotated-types @ file:///croot/annotated-types_1709542908624/work
-anyio @ file:///croot/anyio_1706220167567/work
+alembic==1.15.2
+annotated-types==0.7.0
+anyio==4.9.0
 bcrypt==4.3.0
 cffi==1.17.1
-click @ file:///work/perseverance-python-buildout/croot/click_1698845879718/work
-cryptography==44.0.2
+click==8.1.8
+cryptography==44.0.3
 dnspython==2.7.0
 ecdsa==0.19.1
 email_validator==2.2.0
-fastapi @ file:///work/perseverance-python-buildout/croot/fastapi_1707343766100/work
-greenlet==3.1.1
-h11 @ file:///croot/h11_1706652277403/work
-idna @ file:///croot/idna_1714398848350/work
-iniconfig==2.0.0
+fastapi==0.115.12
+greenlet==3.2.1
+h11==0.16.0
+idna==3.10
+iniconfig==2.1.0
 Jinja2==3.1.6
-Mako==1.3.9
+Mako==1.3.10
 MarkupSafe==3.0.2
-packaging==24.2
+packaging==25.0
 passlib==1.7.4
 pluggy==1.5.0
-psycopg==3.2.6
-psycopg-binary==3.2.6
+psycopg==3.2.7
+psycopg-binary==3.2.7
 psycopg2==2.9.10
 pyasn1==0.4.8
 pycparser==2.22
-pydantic @ file:///croot/pydantic_1709577974639/work
-pydantic_core @ file:///croot/pydantic-core_1709573961665/work
-pytest==8.3.3
+pydantic==2.11.4
+pydantic_core==2.33.2
+pytest==8.3.5
 python-dotenv==1.1.0
 python-jose==3.4.0
 python-multipart==0.0.20
 rsa==4.9.1
-setuptools==72.1.0
+setuptools==80.3.1
 six==1.17.0
-sniffio @ file:///croot/sniffio_1705431295498/work
+sniffio==1.3.1
 sqladmin==0.20.1
-SQLAlchemy==2.0.38
-starlette @ file:///work/perseverance-python-buildout/croot/starlette-recipe_1707343489817/work
-typing_extensions @ file:///croot/typing_extensions_1715268824938/work
-uvicorn @ file:///work/perseverance-python-buildout/croot/uvicorn-split_1698903729429/work
-wheel==0.43.0
+SQLAlchemy==2.0.40
+starlette==0.46.2
+typing-inspection==0.4.0
+typing_extensions==4.13.2
+uvicorn==0.34.2
+wheel==0.45.1
 WTForms==3.1.2
