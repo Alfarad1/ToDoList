@@ -1,10 +1,12 @@
 import { useState } from "react";
 import api from "../axiosConfig";
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null)
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,6 +25,7 @@ function LoginPage() {
         localStorage.setItem("access_token", response.data.access_token)
         localStorage.setItem("refresh_token", response.data.refresh_token)
         console.log("Logged in successfully!")
+        navigate("/");
       } catch (err) {
         console.error(err)
         setError("Invalid username or password")
