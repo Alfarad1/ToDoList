@@ -32,17 +32,33 @@ const TodosPage = () => {
   }, []);
 
   return (
-    <div class="listitems">
-      <h2>Your Todo's:</h2>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>
-            <strong>{todo.title}</strong> <br /> {todo.description}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+    <div className="maincontainer">
+        <div className="addtodo">
+          <h2>Add a Todo:</h2>
+          <form action="">
+          <input type="text" 
+          placeholder="Todo's title"
+          />
+          <textarea class='BigText'type="text" 
+          placeholder="Todo's desctiption"
+          />
+          <button type="submit" id='newTodoSubmit'>Submit</button>
+          </form>
+        </div>
+        <div class="listitems">
+          <h2>Your Todo's:</h2>
+          {error && <p style={{ color: "red" }}>{error}</p>}
+          <ul>
+            {todos.map((todo) => (
+              <li key={todo.id}>
+                <strong>{todo.title}</strong> <br /> {todo.description}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </>
   );
 };
 

@@ -47,13 +47,16 @@ form {
     gap: 2rem;
     align-items: center;
 }
-input {
+input, textarea {
     border-radius: 2rem;
     padding: 1rem;
     width: 30%;
     height: 3rem;
     font-size: 2rem;
     font-family: inherit;
+}
+textarea {
+    height: 30rem;
 }
 button:hover {
     border-color: var(--bg-color-main);
@@ -124,3 +127,8 @@ h2 {
     color: var(--txt-color-header);
 }
 
+.maincontainer {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
