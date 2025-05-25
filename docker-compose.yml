@@ -1,0 +1,54 @@
+services:
+  api:
+    build:
+      context: ./backend
+    container_name: fastapi_app
+    command: uvicorn src.api.main:app -- host 0.0.0.0 --port 8000 --reload
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql+psycopg2://postgres:postgres@db:5432/postgres
+
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASWORD: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  alembic:
+    build:
+      context: ./backend
+    container_name: alembic_migrator
+    command: alembic upgrade head
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql+psycopg2://postgres:postgres@db:5432/postgres
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: react_app
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    tty: true
+    command: npm start
+
+volumes:
+  pgdata:
